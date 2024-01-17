@@ -1,0 +1,295 @@
+﻿<HTML>
+
+<HEAD lang="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="refresh" content="0.1; url=http://tsuiokuyo.ddns.net:8763/js_index.html">
+    <title>foobar2000 song requester</title>
+
+
+    <style type="text/css">
+        <!-- a:link {
+            color: #efe;
+        }
+        
+        a:visited {
+            color: #efe;
+        }
+        
+        a:hover {
+            color: red;
+        }
+        
+        body {
+            margin-left: 5%;
+            margin-right: 5%;
+            background: #000;
+            color: #fff;
+            font-family: tahoma;
+        }
+        
+        ul {
+            paddng: 0;
+            /*	margin-left: 0;
+	margin-right: 0;*/
+        }
+        
+        .trans li {
+            text-aligne: center;
+            display: inline;
+            padding: 0.5em;
+        }
+        
+        h4,
+        h5 {
+            text-align: center;
+            margin: 0;
+            border-bottom: 2px solid #695;
+        }
+        
+        h1 {
+            font-weight: 100;
+            color: #eee;
+        }
+        
+        .how {
+            /*	position: absolute;
+	top: 2em;
+	right: 2em;*/
+            background: #474;
+            float: right;
+            padding-left: 1em;
+            padding-right: 1em;
+            border: 1px solid #695;
+            font-size: 80%;
+        }
+        
+        .current {
+            //padding-top: 0.5em;
+            margin: 2em;
+            text-align: center;
+            font-size: 140%;
+        }
+        
+        .req_container {
+            padding-left: 2em;
+            padding-right: 2em;
+            width: 100%;
+        }
+        /*.req_container caption {
+	font-size: 80%;
+}*/
+        
+        caption {
+            font-size: 120%;
+        }
+        
+        table {
+            border-color: #008080;
+            border-collapse: collapse;
+            border-style: solid;
+        }
+        
+        thead,
+        tfoot,
+        th,
+        tr,
+        td {
+            border-color: #008080;
+        }
+        
+        thead,
+        tfoot {
+            background: #669955;
+        }
+        
+        tfoot {
+            font-size: 120%;
+            font-weight: bold;
+        }
+        
+        .song_list {
+            font-size: 80%;
+        }
+        
+        .message {
+            color: red;
+            font-size: 240%;
+            font-weight: 1000;
+        }
+        
+        .listlist,
+        .indexes {
+            font-size: 80%;
+            /*text-align: center;*/
+            margin: 2em;
+            margin-left: 4em;
+            margin-right: 4em;
+            padding-left: 2em;
+            padding-right: 2em;
+            padding-top: 0em;
+            padding-bottom: 0em;
+            /*background: #474;*/
+            /*background: #253;*/
+            /*background: #473;*/
+            /*border-top: 1px solid #695;
+   border-bottom: 2px solid #253;
+   border-left: 1px solid #695;
+   border-right: 2px solid #253;*/
+            border: 1px solid #695;
+        }
+        /*
+.listlist ul {
+
+	paddng: 0;
+	margin: 0;
+}
+*/
+        
+        .listlist ul li {
+            text-aligne: center;
+            /*display: inline; */
+        }
+        
+        .indexes select {
+            margin-top: 0.4em;
+        }
+        
+        .search {
+            margin-top: 1em;
+            text-align: center;
+        }
+        
+        .song_list a {
+            text-decoration: none;
+        }
+        
+        .s {
+            font-size: 60%;
+        }
+        
+        .caution {
+            color: yellow;
+        }
+        
+        -->
+    </style>
+
+    <script type="text/javascript">
+        var play_time = null;
+        var end_time = null;
+        var interval_id = null;
+        var play_time_field = null;
+
+        function parseTime(time_str) {
+            time_str.match(/(\d+):(\d+)/);
+            var m = parseInt(RegExp.$1);
+            var s = parseInt(RegExp.$2);
+            return (m * 60 + s);
+        }
+
+        function showTime() {
+            if (play_time == null) {
+                play_time_field = document.getElementById('start_time');
+                var v2 = document.getElementById('end_time');
+                if (play_time_field == null || v2 == null) {
+                    window.clearInterval(interval_id);
+                }
+                play_time = parseTime(play_time_field.innerHTML);
+                end_time = parseTime(v2.innerHTML);
+                ++play_time;
+            }
+            if (play_time != null) {
+
+                ++play_time;
+                var s = String(play_time % 60);
+                if (s.length == 1) s = "0" + s;
+                var m = String(Math.floor(play_time / 60));
+                play_time_field.innerHTML = m.concat(":", s);
+
+                if (play_time >= end_time) {
+                    window.clearInterval(interval_id);
+                    //play_time_field.innerHTML = "end song";
+                }
+            }
+        }
+
+        interval_id = window.setInterval(showTime, 1000);
+    </script>
+
+</head>
+
+<body>
+
+    <ul class="trans">
+        <li><a href="?">Refresh</a></li>
+        <li><a href="/">Home</a></li>
+        <!--
+	<li><a href="http://your.shoutcast.server:port/index.html" class="external">Status</a></li>
+	<li><a href="http://your.shoutcast.server:port/listen.pls" class="external">Listen</a></li>
+	<li><a href="http://your.shoutcast.server:port/played.html" class="external">Song history</a></li> 
+	-->
+        <li><a href="http://your.server.com:4096/index.html" class="external">Status</a></li>
+        <li><a href="http://your.server.com:4096/listen.pls" class="external">Listen</a></li>
+        <li><a href="http://your.server.com:4096/played.html" class="external">Song history</a></li>
+        <li><a href="/admin">Admin</a></li>
+    </ul>
+
+
+    <!-- indexes -->
+
+    <div class="indexes">
+        <h4>インデックスから選択</h4>
+        <form action="./simple.html" method="GET" target="_link">
+
+            <!-- artist list -->
+
+            <select name="artist_id" size="1">
+		<option selected value="">-- Artist list -- </option>
+<FOOBAR2000-ArtistList>
+			<option value="%artist_id%">$cut(%artist%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-ArtistList>
+		</select>
+
+
+            <!-- album list -->
+
+            <select name="album_id" size="1">
+		<option selected value="">-- Album list -- </option>
+<FOOBAR2000-AlbumList>
+			<option value="%album_id%">$cut(%album%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-AlbumList>
+		</select>
+
+            <!-- genre list -->
+
+            <select name="genre_id" size="1">
+		<option selected value="">-- Genre list -- </option>
+<FOOBAR2000-GenreList>
+			<option value="%genre_id%">$cut(%genre%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-GenreList>
+		</select>
+
+            <!-- date list -->
+
+            <select name="date_id" size="1">
+		<option selected value="">-- Date list -- </option>
+<FOOBAR2000-DateList>
+			<option value="%date_id%">$cut(%date%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-DateList>
+		</select>
+            <div style="text-align:right;"><input type="submit" value="  View  "></div>
+        </form>
+
+    </div>
+    <!-- end indexes -->
+
+
+
+
+
+    <p style="font-size:70%;text-align:right;">generated by <a href="http://nurugunyo.hp.infoseek.co.jp/foobar_jp.html">foo_request_http</a></p>
+
+</body>
+
+</html>

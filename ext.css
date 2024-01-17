@@ -1,0 +1,221 @@
+
+
+/* from examples */
+body {
+	/*font-family:verdana,tahoma,helvetica;*/
+	padding:5px;
+    padding-top:22px;
+    font-size:13px;
+	background-color:#fff !important;
+}
+p {
+	margin-bottom:15px;
+}
+h1 {
+	font-size:large; 
+	margin-bottom:20px;
+}
+.example-info{
+	width:150px;
+	border:1px solid #c3daf9;
+	border-top:1px solid #DCEAFB;
+	border-left:1px solid #DCEAFB;
+	background:#ecf5fe url(ext/examples/info-bg.gif) repeat-x;
+	font-size:10px;
+	padding:8px;
+}
+pre.code{
+	background: #F8F8F8;
+	border: 1px solid #e8e8e8;
+	padding:10px;
+	margin:10px;
+	margin-left:0px;
+	border-left:5px solid #e8e8e8;
+	font-size: 12px !important;
+	line-height:14px !important;
+}
+.msg .x-box-mc {
+    font-size:14px;
+}
+#msg-div {
+    position:absolute;
+    left:10px;
+    top:10px;
+    width:300px;
+    z-index:20000;
+}
+.x-grid3-row-body p {
+    margin:5px 5px 10px 5px !important;
+}
+
+
+/* from tabs-example */
+
+.list {list-style:square;width:500px;padding-left:16px;}
+.list li{padding:2px;font-size:8pt;}
+
+/* hide the tab content while loading */
+.tab-content{display:none;}
+
+pre {
+   font-size:11px; 
+}
+
+#tabs1 {width:400px;}
+#tabs1 .x-tabs-item-body {display:none;padding:10px;}
+
+#jtabs {width:600px;}
+#jtabs .x-tabs-body {height:200px;overflow:auto;}
+#jtabs .x-tabs-item-body {display:none;padding:10px;font-size:11px;}
+
+/* default loading indicator for ajax calls */
+.loading-indicator {
+	font-size:8pt;
+	background-image:url('ext/resources/images/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+}
+
+#tab-panel1 .x-tabs-body {height:300px;overflow:auto;}
+#tab-panel1 .x-tabs-item-body {padding:10px;}
+
+
+/* from grid-example */
+#grid-example .x-grid-col-1 {
+	text-align: right;
+}
+#grid-example .x-grid-col-2{
+	text-align: right;
+}
+#grid-example .x-grid-col-3 {
+	text-align: right;
+}
+#grid-example .x-grid-col-4 {
+	text-align: right;
+}
+#grid-example.x-grid-mso{
+	border: 1px solid #6593cf;
+}
+#grid-example.x-grid-vista{
+	border: 1px solid #b3bcc0;
+}
+#xml-grid-example{
+	border: 1px solid #cbc7b8;
+	left: 0;
+	position: relative;
+	top: 0;
+}
+#xml-grid-example.x-grid-mso{
+	border: 1px solid #6593cf;
+}
+#xml-grid-example.x-grid-vista{
+	border: 1px solid #b3bcc0;
+}
+#editor-grid .x-grid-col-2{
+    text-align:right;
+}
+.x-grid-col-topic b {
+    font-family:tahoma, verdana;
+    color:#333;
+    display:block;
+    padding-left:18px;
+    line-height:18px;
+    vertical-align:middle;
+    background:transparent url(ext/examples/grid/topic.gif) no-repeat left 1px;
+}
+.x-grid-col-topic b i {
+    font-weight:normal;
+    font-style: normal;
+    color:#000;
+}
+.details .x-btn-text {
+    background-image: url(ext/examples/grid/details.gif);
+}
+/*
+.x-resizable-pinned .x-resizable-handle-south{
+    background:url('ext/resources/images/default/sizer/s-handle-dark.gif');
+    background-position: top;
+}
+*/
+
+#list-tab-panel .x-tabs-strip .x-tabs-inner {
+	 padding-left: 4px;
+	 padding-right: 4px;
+}
+
+
+/*  */
+ul {
+	paddng: 0;
+/*	margin-left: 0;
+	margin-right: 0;*/
+}
+.trans li { 
+	text-aligne: center;
+	display: inline; 
+	padding: 0.5em; 
+	padding-top: 0.2em; 
+	padding-bottom: 0.2em; 
+	/*background:#ecf5fe url('/images/menu_bg.png') repeat-x;*/
+	background-color:#ecf5fe;
+}
+
+h1 span {
+	color:#ffffff;
+	padding: 0.4em;
+	padding-left: 2em;
+	padding-right: 2em;
+	margin-left: 8px;
+	border: 1px solid #6593cf;
+	background:#303c6d url('/images/menu_bg.png') repeat;
+}
+
+.list-tab-grid {
+	border:1px solid #99bbe8;
+	overflow: hidden;
+	width: 232px;
+	height:280px;
+	position:relative;
+	left:0;
+	top:0;
+}
+
+#status-panel {
+	border:1px solid #99bbe8;
+	overflow: hidden; 
+}
+
+#search-panel {
+	border:1px solid #99bbe8;
+	overflow: hidden; 
+}
+
+#list-tab-panel {
+	border:1px solid #99bbe8;
+}
+
+#amazon-image {
+	border: 1px solid #6593cf;
+	overflow:hidden;
+	float:left;
+}
+
+#google-image {
+	border: 1px solid #6593cf;
+	overflow:hidden;
+	float:left;
+}
+#amagle-image {
+	border: 1px solid #6593cf;
+	overflow:hidden;
+	float:left;
+}
+
+#google-image-wrap {
+	visibility:hidden;
+}
+
+#requestlist-grid {
+	border: 1px solid #99bbe8;
+}

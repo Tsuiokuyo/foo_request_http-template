@@ -1,0 +1,104 @@
+<!-- info -->
+
+<FOOBAR2000-Info>
+    <p id="message" style="display:none">%message%</p>
+    <p id="serverStatus" style="display:none">
+        counter:%http_request_num%<br> request:%song_request_num%
+        <br> active connections'('300s')': %participant% <br>
+        <span id="faces">%participant_faces%</span>
+
+        <br><br><br><br><br><br><br><br><br>
+        <span>
+		  資料異常，修改資訊被洗掉了QAQ
+		  </span>
+    </p>
+
+
+    <div id="updateIndexTime" style="display:none;">%update_index_time%</div>
+
+</FOOBAR2000-Info>
+
+
+
+
+
+<!-- play status -->
+
+<div id="playInfo" class="current">
+
+    <FOOBAR2000-CurrentTrack>
+        <iframe src="http://tsuiokuyo.ddns.net:8767/test/" height='260' width='260' alt="封面" id="albumArt" scrolling="no" frameborder="no">封面載入失敗QAQ</iframe>
+        <br> %artist% - %title%
+        <br> $if( %album%, '['%album%']', '' )<br> %codec%/%bitrate%kbps/%samplerate%Hz <br>
+        </strong>
+        <span id="timerPosition">
+            <span id="startTime">%_time_elapsed%</span> / <span id="endTime">%length%</span></span><br>
+        <progress id="nowProgress" max="100" value="0" class="green"> </progress><br>
+        <div id="lyrics" style="display:none;">%lyrics%</div>
+        <div style="width:600px;height:65px;overflow:hidden;display:inline-block;border: solid;background-color:black">
+            <ul id="lyric"></ul>
+        </div>
+    </FOOBAR2000-CurrentTrack>
+</div>
+
+
+
+<!-- request list -->
+<div id="requestList" style="display:none;">
+    <table border="1" class="req_container">
+        <caption>
+            Requested songs &nbsp;&nbsp <span style="font-size:70%;">Max <FOOBAR2000-Info><span class="caution">%max_request_num%</span>. Per IP <span class="caution">%max_request_ip_num%</span>.</FOOBAR2000-Info>
+            </span>
+        </caption>
+        <thead>
+            <th class="s">Index</th>
+            <th class="s">Priority</th>
+            <th class="thead">Action</th>
+            <th class="thead">Artist</th>
+            <th class="thead">Title</th>
+            <th class="thead">Time</th>
+            <th class="thead">bitrate</th>
+            <th class="thead">samplerate</th>
+            <!-- <th>download</th> -->
+        </thead>
+        <tbody>
+            <FOOBAR2000-RequestTrack>
+                <tr>
+                    <td>%index%</td>
+                    <td>%priority%</td>
+                    <td> $if( %is_requested%, <a href="#" onClick="ReqStatus.update'(' ''cmd=remove&list_id=%list_id%&song_id=%song_id%'' ')'; return false;">Cancel</a>,
+                        <a href="#" onClick="ReqStatus.update'(' ''cmd=request&list_id=%list_id%&song_id=%song_id%'' ')'; return false;">Prioritize</a> ) </td>
+                    <td>%artist%</td>
+                    <td>%title%</td>
+                    <td>%length%</td>
+                    <!-- <td><a href="/download/%filename_ext%?list_id=%list_id%&song_id=%song_id%">download</a></td> -->
+                </tr>
+            </FOOBAR2000-RequestTrack>
+
+            <FOOBAR2000-SubPlaylist>
+                <tr style="color: #bbb;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>%artist%</td>
+                    <td>%title%</td>
+                    <td>%length%</td>
+                    <td>%codec%/%bitrate%Kbit/s</td>
+                    <td>%samplerate%Hz</td>
+
+                </tr>
+            </FOOBAR2000-SubPlaylist>
+        </tbody>
+        <tfoot colspan="7"></tfoot>
+    </table>
+</div>
+
+<!-- play list -->
+<div id="playList" style="display:none;">
+    <h4>Playlist list <span><FOOBAR2000-Info>'('%all_song_num% songs')'</FOOBAR2000-Info><span></h4>
+	<ul>
+<FOOBAR2000-PlaylistList>
+	<li><a href="#" onClick="SongList.updateTab'(' ''%playlist_name%'', ''list_id=%list_id%&song_id=%song_id%'', {isFocus:false, tabIcon:''defaultIcon''} ')'; return false;">%playlist_name%'('請點我')'</a> <span>'('%playlist_size% songs')'</span></li>
+        </FOOBAR2000-PlaylistList>
+        </ul>
+</div>

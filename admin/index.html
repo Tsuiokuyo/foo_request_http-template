@@ -1,0 +1,209 @@
+﻿<HTML>
+  <HEAD lang="en-US">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>admin</title>
+
+<style type="text/css">
+<!--
+a:link {color: #efe; }
+a:visited {color: #efe; }
+a:hover {color: red; }
+body { 
+	margin-left:5%; 
+	margin-right:5%; 
+	background:#000; 
+	color:#fff; 
+	font-family: tahoma;
+}
+ul {
+	paddng: 0;
+/*	margin-left: 0;
+	margin-right: 0;*/
+}
+.trans li { 
+	text-aligne: center;
+	display: inline; 
+	padding: 0.5em; 
+}
+h4, h5 {
+	text-align: center;
+	margin: 0;
+	border-bottom: 2px solid #695;
+}
+h1 {
+	font-weight: 100;
+	color: #eee;
+}
+.how {
+/*	position: absolute;
+	top: 2em;
+	right: 2em;*/
+	background: #474;
+	float:right;
+	padding-left: 1em;
+	padding-right: 1em;
+	border: 1px solid #695;
+	font-size:80%;
+}
+.current {
+	//padding-top: 0.5em;
+	margin: 2em;
+	text-align: center;
+	font-size: 140%;
+}
+.req_container {
+	padding-left: 2em;
+	padding-right: 2em;
+	width: 100%;
+}
+/*.req_container caption {
+	font-size: 80%;
+}*/
+caption{
+	font-size: 120%;
+}
+table { 
+	border-color: #008080; 
+	border-collapse : collapse; 
+	border-style: solid;
+}
+thead, tfoot, th, tr, td { 
+	border-color: #008080; 
+}
+thead, tfoot { 
+	background: #669955; 
+}
+tfoot { 
+	font-size: 120%; 
+	font-weight: bold; 
+}
+.song_list { 
+	font-size: 80%; 
+}
+.message { 
+	color: red; 
+	font-size:240%; 
+	font-weight: 1000; 
+}
+.listlist, .indexes {
+	font-size: 80%;
+	/*text-align: center;*/
+	margin: 2em;
+	margin-left: 4em;
+	margin-right: 4em;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 0em;
+	padding-bottom: 0em;
+	/*background: #474;*/
+	/*background: #253;*/
+	/*background: #473;*/
+	/*border-top: 1px solid #695;
+   border-bottom: 2px solid #253;
+   border-left: 1px solid #695;
+   border-right: 2px solid #253;*/
+   border: 1px solid #695;
+}
+/*
+.listlist ul {
+
+	paddng: 0;
+	margin: 0;
+}
+*/
+.listlist ul li {
+	text-aligne: center;
+	/*display: inline; */
+}
+.indexes select {
+	margin-top: 0.4em;
+}
+.search {
+	margin-top:1em;
+	text-align: center;
+}
+.song_list a{
+	text-decoration: none; 
+}
+.s {
+	font-size: 60%;
+}
+.caution {
+	color: yellow;
+}
+-->
+</style>
+
+<body>
+
+<ul class="trans">
+<li><a href="?">Refresh</a></li>
+<li><a href="/">Home</a></li>
+<li><a href="http://your.server.com:4096/index.html">Status</a></li>
+<li><a href="http://your.server.com:4096/listen.pls">Listen</a></li>
+<li><a href="http://your.server.com:4096/played.html">Song history</a></li>
+<li><a href="/admin">Admin</a></li>
+</ul>
+
+<FOOBAR2000-AdminInfo>
+	<p class="message">%message%</p>
+	<p>counter:%http_request_num%<br>
+	request:%song_request_num%<br>
+	active connections'('300s')': %participant% <br>
+	ip list: %ip_list%</p>
+</FOOBAR2000-AdminInfo>
+
+
+
+
+<div class="listlist">
+<h4>Foobar2000 control</h4>
+<ul class="trans">
+<li>Playback</li>
+<li><a href="./?menu_cmd=Next">Next</a></li>
+<li><a href="./?menu_cmd=Pause">Pause</a></li>
+<li><a href="./?menu_cmd=Play">Play</a></li>
+<li><a href="./?menu_cmd=Stop">Stop</a></li>
+</ul>
+<ul class="trans">
+<li>Dsp cast</li>
+<li><a href="./?menu_cmd=Connect">Connect</a></li>
+<li><a href="./?menu_cmd=Connect">Disconnect</a></li>
+</ul>
+<ul class="trans">
+<li>Request http</li>
+<li><a href="./?menu_cmd=Enable request server">Toggle request server</a></li>
+<li><a href="./?menu_cmd="Reconstruct index">Reconstruct index</a></li>
+</ul>
+</div>
+
+<!--
+<form action="./admin" method="GET">
+command:<input type="text" size="20" name="menu_cmd">
+<input type=Submit value="process">
+</form>
+-->
+
+<!-- request list -->
+
+	<table border="1" class="req_container">
+	  <caption>
+		requested songs
+	  </caption>
+	  <thead>
+		<th class="s">Index</th><th class="s">Priority</th><th>Action</th><th>Artist</th><th>Title</th><th>Time</th><th>Ip list</th>
+	  </thead>
+
+<FOOBAR2000-AdminRequestTrack>
+		<tr>
+		  <td>%index%</td><td>%priority%</td>
+		  <td><a href="./?cmd=remove&list_id=%list_id%&song_id=%song_id%">Remove</a></td>
+		  <td>%artist%</td><td>%title%</td><td>%length%</td><td>%ip_list%</td>
+		</tr>
+</FOOBAR2000-AdminRequestTrack>
+
+	</table>
+
+
+</body></html>

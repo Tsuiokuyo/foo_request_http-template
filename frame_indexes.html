@@ -1,0 +1,102 @@
+<HTML>
+
+<HEAD lang="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="refresh" content="0.1; url=http://tsuiokuyo.ddns.net:8763/js_index.html">
+    <title>foobar2000 song requester</title>
+    <link rel="stylesheet" type="text/css" href="/requester.css" media="all">
+
+    <style type="text/css">
+        <!-- body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        form {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h4,
+        h5 {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            border-bottom: 2px solid #695;
+        }
+        
+        .indexes {
+            font-size: 80%;
+            margin: 0;
+            padding: 0;
+            margin-left: 4em;
+            margin-right: 4em;
+            padding-left: 2em;
+            padding-right: 2em;
+            border: 1px solid #695;
+        }
+        
+        .indexes select {
+            margin-top: 0.4em;
+        }
+        
+        -->
+    </style>
+
+</head>
+
+<body>
+
+    <!-- indexes -->
+
+    <div class="indexes">
+        <h4>Select from indexes</h4>
+        <form action="frame_main.html" method="GET" target="main">
+
+            <!-- artist list -->
+
+            <select name="artist_id" size="1">
+		<option selected value="">-- Artist list -- </option>
+<FOOBAR2000-ArtistList>
+			<option value="%artist_id%">$cut(%artist%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-ArtistList>
+		</select>
+
+
+            <!-- album list -->
+
+            <select name="album_id" size="1">
+		<option selected value="">-- Album list -- </option>
+<FOOBAR2000-AlbumList>
+			<option value="%album_id%">$cut(%album%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-AlbumList>
+		</select>
+
+            <!-- genre list -->
+
+            <select name="genre_id" size="1">
+		<option selected value="">-- Genre list -- </option>
+<FOOBAR2000-GenreList>
+			<option value="%genre_id%">$cut(%genre%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-GenreList>
+		</select>
+
+            <!-- date list -->
+
+            <select name="date_id" size="1">
+		<option selected value="">-- Date list -- </option>
+<FOOBAR2000-DateList>
+			<option value="%date_id%">$cut(%date%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-DateList>
+		</select>
+            <div style="text-align:right;"><input type="submit" value="  View  "></div>
+        </form>
+
+    </div>
+    <!-- end indexes -->
+
+
+</body>
+
+</html>

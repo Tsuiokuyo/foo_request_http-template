@@ -1,0 +1,23 @@
+{ 
+total_size:
+<FOOBAR2000-Info>
+"[%total_size%]"
+</FOOBAR2000-Info>
+,
+songlist:[
+<FOOBAR2000-SongList>
+{ 
+  list_id: "%list_id%",
+  song_id: "%song_id%",
+  artist: "[%artist%]",
+  title: "[%title%]",
+  album: "[%album%]",
+  comment: "[%comment%]",
+  length: "%_length%",
+  codec: "%__codec%",
+  bitrate: "%__bitrate%",
+  filename_ext:"%filename_ext%"
+},
+</FOOBAR2000-SongList>
+{}
+]}

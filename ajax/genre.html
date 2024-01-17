@@ -1,0 +1,9 @@
+<!-- genre list -->
+<div id="genreList">
+  <select name="genre_id" id="genre_id" size="13" onChange="javascript:SongList.updateFromFormElement('genre','genre_id');">
+    <option selected value="">-- Genre list -- </option>
+<FOOBAR2000-GenreList>
+    <option value="%genre_id%">$cut(%genre%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-GenreList>
+  </select> 
+</div>

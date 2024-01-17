@@ -1,0 +1,11 @@
+{
+<FOOBAR2000-Info>
+message:"%message%",
+http_request_num:"%http_request_num%",
+song_request_num:"%song_request_num%",
+participant:"%participant%",
+playlist_name:"%playlist_name%",
+search_text:"%search_text%",
+index_id:"%index_id%"
+</FOOBAR2000-Info>
+}

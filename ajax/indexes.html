@@ -1,0 +1,49 @@
+<!-- indexes -->
+
+	<div class="indexes">
+	<h4>Select from indexes - <a onClick="updateIndexes(); return false;" class="underline"> update indexes </a></h4>
+		<form id="indexForm">
+
+<!-- artist list -->
+
+		<select name="artist_id" size="1" >
+		<option selected value="">-- Artist list -- </option>
+<FOOBAR2000-ArtistList>
+			<option value="%artist_id%">$cut(%artist%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-ArtistList>
+		</select> 
+
+	
+<!-- album list -->
+
+		<select name="album_id" size="1" >
+		<option selected value="">-- Album list -- </option>
+<FOOBAR2000-AlbumList>
+			<option value="%album_id%">$cut(%album%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-AlbumList>
+		</select> 
+	
+<!-- genre list -->
+
+		<select name="genre_id" size="1" >
+		<option selected value="">-- Genre list -- </option>
+<FOOBAR2000-GenreList>
+			<option value="%genre_id%">$cut(%genre%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-GenreList>
+		</select> 
+	
+<!-- date list -->
+
+		<select name="date_id" size="1" >
+		<option selected value="">-- Date list -- </option>
+<FOOBAR2000-DateList>
+			<option value="%date_id%">$cut(%date%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-DateList>
+		</select> 
+		<div style="text-align:right;">
+			<button onclick="updateSongList('indexForm'); return false;">View</button>
+		</div>
+	</form>
+
+</div>
+<!-- end indexes -->

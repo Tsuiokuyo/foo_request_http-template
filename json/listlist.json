@@ -1,0 +1,16 @@
+{
+total_size:
+<FOOBAR2000-Info>
+"[%total_size%]"
+</FOOBAR2000-Info>
+,
+listlist:[
+<FOOBAR2000-PlaylistList>
+{
+list_id: "%list_id%",
+list: "%playlist_name%",
+song_num: "%playlist_size%"
+},
+</FOOBAR2000-PlaylistList>
+{}
+]}

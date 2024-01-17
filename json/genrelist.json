@@ -1,0 +1,16 @@
+{
+total_size:
+<FOOBAR2000-Info>
+"[%total_size%]"
+</FOOBAR2000-Info>
+,
+genrelist:[
+<FOOBAR2000-GenreList>
+{
+genre_id:"%genre_id%",
+genre:"%genre%",
+song_num:"%song_num%"
+},
+</FOOBAR2000-GenreList>
+{}
+]}

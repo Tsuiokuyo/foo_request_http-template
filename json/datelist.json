@@ -1,0 +1,16 @@
+{
+total_size:
+<FOOBAR2000-Info>
+"[%total_size%]"
+</FOOBAR2000-Info>
+,
+datelist:[
+<FOOBAR2000-DateList>
+{
+date_id:"%date_id%",
+date:"%date%",
+song_num:"%song_num%"
+},
+</FOOBAR2000-DateList>
+{}
+]}

@@ -1,0 +1,16 @@
+{
+total_size:
+<FOOBAR2000-Info>
+"[%total_size%]"
+</FOOBAR2000-Info>
+,
+albumlist:[
+<FOOBAR2000-AlbumList>
+{
+album_id:"%album_id%",
+album:"%album%",
+song_num:"%song_num%"
+},
+</FOOBAR2000-AlbumList>
+{}
+]}

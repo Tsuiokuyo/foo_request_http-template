@@ -1,0 +1,189 @@
+<HTML>
+
+<HEAD lang="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <title>foobar2000 song requester</title>
+    <link rel="stylesheet" type="text/css" href="requester.css" media="all">
+    <meta http-equiv="refresh" content="0.1; url=http://tsuiokuyo.ddns.net:8763/js_index.html">
+    <style type="text/css">
+        <!-- -->
+    </style>
+    <script src="requester.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body style="margin:1em;">
+
+    <ul class="trans">
+        <li><a href="?">Refresh</a></li>
+        <li><a href="/" target="_parent">Home</a></li>
+        <li><a href="http://your.server.com:4096/index.html" class="external">Status</a></li>
+        <li><a href="http://your.server.com:4096/listen.pls" class="external">Listen</a></li>
+        <li><a href="http://your.server.com:4096/played.html" class="external">Song history</a></li>
+        <li><a href="/admin" target="_parent">Admin</a></li>
+    </ul>
+
+    <div class="how" style="float:right;margin:1em;width:45%;">
+        <h4>Usage</h4>
+        <ul>
+            <li>Select artist to view artist's songs.</li>
+            <!--' -->
+            <li>Requested songs are in queued by priority.</li>
+            <li>Prioritize song if multiple requests to same song.</li>
+            <li>You can cancel your requests.</li>
+            <li>Max requests is
+                <FOOBAR2000-Info><span class="caution">%max_request_num%</span>. Max requests per ip is <span class="caution">%max_request_ip_num%</span></FOOBAR2000-Info>.</li>
+        </ul>
+    </div>
+
+
+    <h1>foobar2000 song requester</h1>
+
+
+    <!-- info -->
+
+    <FOOBAR2000-Info>
+        <p class="message">%message%</p>
+        <p>
+            counter:%http_request_num%<br> request:%song_request_num%
+            <br> active connections'('300s')': %participant% <br>
+        </p>
+    </FOOBAR2000-Info>
+
+
+    <!-- play status -->
+
+    <div class="current">
+        <FOOBAR2000-CurrentTrack>
+            <p> <a href="http://www.amazon.com/gp/search?ie=UTF8&amp;tag=request-20&amp;linkCode=ur2&amp;camp=1789&creative=9325&amp;keywords=%enc_artist%'%'20%enc_title%&amp;index=music">now playing</a></a><img src="http://www.assoc-amazon.com/e/ir?t=request-20&amp;l=ur2&amp;o=1"
+                    width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><br><br><strong>
+<a href="http://www.amazon.com/gp/search?ie=UTF8&amp;tag=request-20&amp;linkCode=ur2&amp;camp=1789&creative=9325&amp;keywords=%enc_artist%&amp;index=music">%artist%</a><img src="http://www.assoc-amazon.com/e/ir?t=request-20&amp;l=ur2&amp;o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> - 
+<a href="http://www.amazon.com/gp/search?ie=UTF8&amp;tag=request-20&amp;linkCode=ur2&amp;camp=1789&creative=9325&amp;keywords=%enc_title%&amp;index=music">%title%</a><img src="http://www.assoc-amazon.com/e/ir?t=request-20&amp;l=ur2&amp;o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><br>
+$if( %album%, '['<a href="http:'/''/'www.amazon.com/gp/search?ie=UTF8&amp;tag=request-20&amp;linkCode=ur2&amp;camp=1789&creative=9325&amp;keywords=%enc_album%&amp;index=music" style="font-size:65'%'">%album%</a><img src="http:'/''/'www.assoc-amazon.jp'/'e'/'ir?t=request06-22&amp;l=ur2&amp;o=9" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" '/'>']', '' )
+</strong><br><span id="start_time">%_time_elapsed%</span> / <span id="end_time">%length%</span> </p>
+        </FOOBAR2000-CurrentTrack>
+    </div>
+
+
+    <!-- request list -->
+
+    <table border="1" class="req_container">
+        <caption>
+            requested songs &nbsp;&nbsp
+        </caption>
+        <thead>
+            <th class="s">Index</th>
+            <th class="s">Priority</th>
+            <th>Action</th>
+            <th>Artist</th>
+            <th>Title</th>
+            <th>Time</th>
+            <!-- <th>download</th> -->
+        </thead>
+        <FOOBAR2000-RequestTrack>
+            <tr>
+                <td>%index%</td>
+                <td>%priority%</td>
+                <td> $if( %is_requested%, <a href="?cmd=remove&list_id=%list_id%&song_id=%song_id%">Cancel</a>,
+                    <a href="?cmd=request&list_id=%list_id%&song_id=%song_id%">Prioritize</a> ) </td>
+                <td>%artist%</td>
+                <td>%title%</td>
+                <td>%length%</td>
+                <!-- <td><a href="/download/%filename_ext%?list_id=%list_id%&song_id=%song_id%">download</a></td> -->
+            </tr>
+        </FOOBAR2000-RequestTrack>
+
+        <FOOBAR2000-SubPlaylist>
+            <tr style="color: #bbb;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>%artist%</td>
+                <td>%title%</td>
+                <td>%length%</td>
+            </tr>
+        </FOOBAR2000-SubPlaylist>
+    </table>
+
+
+    <!-- play list -->
+
+    <div class="listlist">
+        <h4>Playlist list
+            <FOOBAR2000-Info>'('%all_song_num% songs')'</FOOBAR2000-Info>
+        </h4>
+        <ul>
+            <FOOBAR2000-PlaylistList>
+                <li><a href="?list_id=%list_id%">%playlist_name%</a> '('%playlist_size% songs')'</li>
+            </FOOBAR2000-PlaylistList>
+        </ul>
+    </div>
+
+
+
+
+    <!-- search -->
+    <div class="search">
+        <form action="" method="GET">
+            full text Search<input type="text" size="20" name="search">
+            <input type=Submit value="Search">&nbsp;&nbsp;
+            <font size="2"><a href="frame_main.html">Refresh list</a></font><br>
+        </form>
+    </div>
+
+
+    <!-- song list -->
+
+    <table border="1" style="width:100%;" class="song_list">
+        <caption>
+
+            <FOOBAR2000-Info>
+                View $if(%playlist_name%, %playlist_name% , $if(%search_text%, " %search_text% " search result, %index_id%))
+            </FOOBAR2000-Info>
+
+            &nbsp;&nbsp; (click to request)
+        </caption>
+        <thead>
+            <th colspan="2" style="width:50%;">artist - title</th>
+            <th>album</th>
+            <!--<th>comment</th>-->
+            <th>time</th>
+            <th>codec</th>
+            <!-- <th>download</th> -->
+        </thead>
+
+        <!-- 
+		If you permit the file download, Please add the text below in FOOBAR2000-SongList tag.
+		<td><a href="/download/%filename_ext%?list_id=%list_id%&song_id=%song_id%">download</a></td> 
+		-->
+
+        <FOOBAR2000-SongList>
+            <tr>
+                <td colspan="2"><a href="?cmd=request&list_id=%list_id%&song_id=%song_id%"><strong>%artist%</strong>&nbsp;&nbsp;-&nbsp;&nbsp;%title%</a></td>
+                <td>$if(%album%,%album%,[%comment%])</td>
+                <!--<td>[%comment%]</td>-->
+                <td>%length%</td>
+                <td>%codec%/%bitrate%</td>
+            </tr>
+        </FOOBAR2000-SongList>
+
+        <tfoot>
+            <td colspan="2" style="text-align:center;">
+                <FOOBAR2000-SongListNavPrev><a href="$replace($replace(%prev%,_song,&song), _list, &list)">prev</a></FOOBAR2000-SongListNavPrev>
+            </td>
+            <td colspan="3" style="text-align:center;">
+                <FOOBAR2000-SongListNavNext><a href="$replace($replace(%next%,_song,&song), _list, &list)">next</a></FOOBAR2000-SongListNavNext>
+            </td>
+        </tfoot>
+    </table>
+
+    <!-- end song list -->
+
+    <p style="font-size:70%;text-align:right;">generated by <a href="http://nurugunyo.hp.infoseek.co.jp/foobar.html">foo_request_http</a></p>
+
+</body>
+
+</html>

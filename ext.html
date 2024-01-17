@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>foo_request</title>
+    <link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="ext.css" />
+    <script type="text/javascript" src="ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="ext/ext-all.js"></script>
+    <script type="text/javascript" src="ext.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+        new Crate({
+            server: '1074306452484796427',
+            channel: '1074306452992303124',
+        })
+    </script> -->
+</head>
+
+<body>
+    <ul class="trans" style="position:absolute;left:375px;">
+        <li><a href="#" id="show-dialog-btn">Help</a></li>
+        <li><a href="/">Home</a></li>
+        <!--
+		<li><a href="http://your.shoutcast.server:port/index.html" class="external">Status</a></li>
+		<li><a href="http://your.shoutcast.server:port/listen.pls" class="external">Listen</a></li>
+		<li><a href="http://your.shoutcast.server:port/played.html" class="external">Song history</a></li> 
+		-->
+        <li><a href="tsuiokuyo.ddns.net:8763/index.html" class="external">Status</a></li>
+        <li><a href="tsuiokuyo.ddns.net:8763/listen.pls" class="external">Listen</a></li>
+        <li><a href="tsuiokuyo.ddns.net:8763/played.html" class="external">Song history</a></li>
+        <li><a href="/admin">Admin</a></li>
+    </ul>
+
+    <h1><span>ext foo request</span></h1>
+
+    <!-- left column -->
+
+    <div style="position:absolute;left:10px;top:60px;">
+        <div id="status-wrap" style="width:265px;" class="x-box-blue">
+            <div class="x-box-tl">
+                <div class="x-box-tr">
+                    <div class="x-box-tc"></div>
+                </div>
+            </div>
+            <div class="x-box-ml">
+                <div class="x-box-mr">
+                    <div class="x-box-mc">
+                        <div id="status-box" style="width: 235px;">
+                            <h4 style="margin-bottom:5px;">Status</h4>
+                            <div id="status-panel" style="width: 235px; height: 150px;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-box-bl">
+                <div class="x-box-br">
+                    <div class="x-box-bc"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="search-wrap" style="width:265px;">
+            <div class="x-box-tl">
+                <div class="x-box-tr">
+                    <div class="x-box-tc"></div>
+                </div>
+            </div>
+            <div class="x-box-ml">
+                <div class="x-box-mr">
+                    <div class="x-box-mc">
+                        <div id="search-box" style="width: 235px; height:55px">
+                            <!-- <h4 style="margin-bottom:5px;">Search</h4> -->
+                            <div id="search-panel" style="width: 235px;padding-top:2px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-box-bl">
+                <div class="x-box-br">
+                    <div class="x-box-bc"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="list-root-tab-wrap" style="width:265px;" class="x-box-blue">
+            <div class="x-box-tl">
+                <div class="x-box-tr">
+                    <div class="x-box-tc"></div>
+                </div>
+            </div>
+            <div class="x-box-ml">
+                <div class="x-box-mr">
+                    <div class="x-box-mc">
+                        <h4 style="margin-bottom:5px;">Playlists</h4>
+
+                        <div id="list-tab-panel" style="height:310px; width: 235px;">
+                            <div id="list-root-tab">
+                                <div id="list-tab-content">
+                                    <!--
+							<div id="playlistlist-grid" style="border:1px solid #99bbe8;overflow: hidden; width: 365px; height: 200px;position:relative;left:0;top:0;"></div>
+							-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-box-bl">
+                <div class="x-box-br">
+                    <div class="x-box-bc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- right column -->
+
+
+    <div id="imageview-wrap" style="position:absolute;left:280px;top:60px;width:430px">
+        <div class="x-box-tl">
+            <div class="x-box-tr">
+                <div class="x-box-tc"></div>
+            </div>
+        </div>
+        <div class="x-box-ml">
+            <div class="x-box-mr">
+                <div class="x-box-mc">
+                    <iframe src="http://tsuiokuyo.ddns.net:8767/test/" height='398' width='200' alt="封面"></iframe>
+                    <!-- 
+			<iframe id="amagle-image" src="" width="445" height="200"></iframe>
+			
+			<iframe id="amazon-image" src="" width="135" height="200"></iframe>
+			
+			
+			<iframe id="google-image" src="" width="398" height="200"></iframe>
+			
+			-->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="x-box-bl">
+            <div class="x-box-br">
+                <div class="x-box-bc"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="requestlist-wrap" style="position:absolute;left:280px;top:283px;width:430px">
+        <div class="x-box-tl">
+            <div class="x-box-tr">
+                <div class="x-box-tc"></div>
+            </div>
+        </div>
+        <div class="x-box-ml">
+            <div class="x-box-mr">
+                <div class="x-box-mc">
+                    <h4 style="margin-bottom:5px;">Requests</h4>
+                    <div id="requestlist-grid" style="width:390px; height:388px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="x-box-bl">
+            <div class="x-box-br">
+                <div class="x-box-bc"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="usage-dlg" style="visibility:hidden;position:absolute;top:0px;">
+        <div class="x-dlg-hd">使い方</div>
+        <div class="x-dlg-bd">
+            <!-- Auto create tab 1 -->
+            <div class="x-dlg-tab" title="使い方">
+                <!-- Nested "inner-tab" to safely add padding -->
+                <div class="inner-tab">
+                    プレイリストを選択すると曲一覧が表示されます。<br> 曲を選択し、リクエストボタンをクリックするとキューに追加されます。
+                    <br> ダブルクリックでもリクエストできます。
+                    <br>
+                    <br> 複数の人がリクエストしてる曲は優先度が上がります。
+                    <br> 自分のリクエストした曲であれば取り消せます。
+                    <br>
+                    <br> 現在プレイ中の曲のジャケット画像が右上に表示されます。 リクエスト中の曲を選択してもそのジャケット画像が表示されます。
+                    <br>
+                </div>
+            </div>
+            <!-- Auto create tab 2 -->
+            <!--
+		<div class="x-dlg-tab" title="Hello World 2">
+			<div class="inner-tab">
+			... World!
+			</div>
+		</div>
+		-->
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+    </div>
+    <div id="body"></div>
+    <div id="body2"></div>
+</body>
+
+
+
+</html>

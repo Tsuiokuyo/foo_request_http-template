@@ -1,0 +1,12 @@
+{
+<FOOBAR2000-CurrentTrack>
+artist:"%artist%",
+title:"%title%",
+album:"%album%",
+enc_artist:"%enc_artist%",
+enc_title:"%enc_title%",
+enc_album:"%enc_album%",
+time_elapsed:"%_time_elapsed%",
+length:"%length%"
+</FOOBAR2000-CurrentTrack>
+}

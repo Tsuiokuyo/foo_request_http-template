@@ -1,0 +1,9 @@
+<!-- artist list -->
+<div id="artistList">
+  <select name="artist_id" id="artist_id" size="13" onChange="javascript:SongList.updateFromFormElement('artist', 'artist_id');">
+    <option selected value="">-- Artist list -- </option>
+<FOOBAR2000-ArtistList>
+    <option value="%artist_id%">$cut(%artist%,40) - '('%song_num% songs')'</option>
+</FOOBAR2000-ArtistList>
+  </select>
+</div>

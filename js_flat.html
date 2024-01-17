@@ -1,0 +1,310 @@
+<html lang="zh-tw">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <title>tsuiokuyo的點歌台</title>
+    <meta http-equiv="refresh" content="0.1; url=http://tsuiokuyo.ddns.net:8763/js_index.html">
+    <link rel="stylesheet" type="text/css" href="/requester.css" media="all">
+    <style type="text/css">
+
+    </style>
+    <script src="/prototype.js" type="text/javascript"></script>
+    <script src="/ricolite.js" type="text/javascript"></script>
+    <script src="/scriptaculous/effects.js" type="text/javascript"></script>
+    <script src="/scriptaculous/controls.js" type="text/javascript"></script>
+    <script src="/requester.js" type="text/javascript"></script>
+    <script type="text/JScript">
+        ieSpecific();
+    </script>
+    <script type="text/javascript">
+        var pe = new PeriodicalExecuter(ShowTimer.run.bind(ShowTimer), 1);
+    </script>
+</head>
+
+<body onload="javascript:bodyOnLoad()">
+
+    <p id="infoPlace"></p>
+    <p id="messagePlace"></p>
+    <div id="floatLeftDiv" style="float:left;"></div>
+    <div id="floatRightDiv" style="float:right;"></div>
+
+    <div id="body">
+
+        <ul class="trans">
+            <li><a href="?">Refresh</a></li>
+            <!--
+       <li><a href="/">Home</a></li>
+       <li><a href="http://your.server.com:4096/index.html" class="external">Status</a></li>
+       <li><a href="http://your.server.com:4096/listen.pls" class="external">Listen</a></li>
+       <li><a href="http://your.server.com:4096/played.html" class="external">Song history</a></li>
+       <li><a href="/admin">Admin</a></li> -->
+        </ul>
+
+        <!--
+      <div id="how" class="how" style="float:right;margin:1em;width:45%;display:none;">
+        <h4>Usage</h4>
+        <ul>
+          <li>Select artist to view artist's songs.</li>
+          <li>Requested songs are in queued by priority.</li>
+          <li>Prioritize song if multiple requests to same song.</li>
+          <li>You can cancel your requests.</li>
+        </ul>
+
+        <script>
+          Rico.Corner.round($('how'));
+        </script>
+      </div>
+      -->
+
+        <div>
+            <div style="margin:1em;width:40%;float:left;">
+
+                <h2>tsuiokuyo's song request(testing) here is old WebPage</h2>
+                <!--<h3>動畫野雞榜單: <a href="https://tsuiokuyo.netlify.com/animelisttw">https://tsuiokuyo.netlify.com/animelisttw</a><h3> -->
+                <h3>如想使用app串流請擇一貼入路徑</h3>
+
+                建議:
+                <h3>(16bit/48kHz 320kbps vorbis audio/ogg)
+                    <Br> http://tsuiokuyo.ddns.net:8764/vorbis</h3>
+
+                偶有問題:
+                <h3>(16bit/44.1kHz 320kbps audio/mpeg)
+                    <Br> http://tsuiokuyo.ddns.net:8765/shoutcast</h3>
+                已移除:
+                <s><h3>(24bit/48kHz FLAC Lossless audio/ogg)<Br> http://tsuiokuyo.ddns.net:8764/stream</h3> </s>
+                <Br>
+                <h3>有任何問題歡迎寄信tsuiokuyo@gmail.com
+                    <h3>
+                        <h3>LAST.fm歷史歌單: <a href="https://www.last.fm/zh/user/Tsuiokuyo">https://www.last.fm/zh/user/Tsuiokuyo</a></h3>
+                        <a id="updateStatusLink" class="underline">Refresh current status</a>
+                        <script type="text/javascript">
+                            Event.observe('updateStatusLink', 'click', ReqStatus.update.curry('', true), false);
+                        </script>
+
+                        <div id="serverStatusPlace"></div>
+
+            </div>
+
+
+            <div style="margin:1em;margin-left:-2em;float:left;width:45%;">
+                <!-- status -->
+                new WebPage
+                <H1>http://tsuiokuyo.ddns.net:8763/js_index.html</H1>
+                這是一個點歌畫面，如果有bug，等我發現而且有空就會改改看...，<br/> 不過現在都在P站玩AI繪圖(pixiv.net/users/15348773)大概也沒心情改啦
+                <br/>
+                <br/> 剛開始播放時可能要稍微等待讀取
+                <br/> 如果歌曲中斷或是無法播放，只要網頁沒掛掉，別懷疑，一定是我foobar2000的問題，
+
+                <br/>
+                <br/> 網站掛了可能是DDNS沒展期或者膩了...?
+                <br /> 一小時內沒解決的話就是人不在，請晚點再來看看。
+                <br/> 以及特定IP區段封鎖連入。
+                <br/>
+
+                <br/> 目前這裡面的歌都是自己有接觸的ACGN作品或所包含的專輯或同人歌手及演唱會LIVE無損版本，
+                <br/> 另外舉個例子，GARNiDELiA的極楽浄土這首歌本身實際上跟ACG無關，
+                <br>但它被收錄在Qualidea Code的ED專輯 約束 -Promise code- 中，也因此這裡也有<br>
+                <br> 而新番、忘記的作品都暫時不會出現
+                <br/> Vtube歌曲也基本上不會出現，我認為跟ACGN無關，而且目前也沒興趣
+                <br> V家、洛天依及遊戲歌估計佔不到總量的一成
+                <br/> 而東方歌曲估計也有兩萬首同人歌，但是因為目前硬碟容量不夠大，
+                <br/> 目前約放入四千首而已，之後再重整理出自己會聽且不重複的專輯，這工程也是蠻浩大的...
+                <br/> 歌曲大多都是含人聲的作品，但還是會有純音樂及純和聲，畢竟還是有少數作品片頭或片尾曲為純音樂
+
+                <br/> 如:瑪莉亞的凝望、晨曦公主、R.O.D等等作品
+                <br/>
+                <br/> 基本上多為FLAC，少數是以前轉的無損格式，
+                <s>WAV</s>、WV、APE、TAK、TTA、M4A(ALAC)<br/> 位元率範圍由128kbps(Mp3)~10000kbps(Hi-Res)...
+                <br/> 赫茲也是由44100Hz~192000Hz 不過因為是串流的關係，所以必定要重取樣
+                <br/>
+
+                <br/> 尚有13首MP3格式，基本上是本來就沒有錄製高音質版的，以及懶得去找的
+                <br/> 例如: Farewell-苺依.mp3 (裏番，イエナイコト -2nd scene- Anime Edition)<br/>
+                <br/>
+
+                <br/> 硬碟已滿，而目前其中佔最大容量的單一作品是Love Live!(無印) 83個專輯共70G<br/>
+                <br>
+                <br/> 這台機器除了串流傳輸，還有做很多任務常駐，所以儘管給了foobar2000優先度最高，還是有LAG情況發生...
+                <br/> 其次是歌曲播完切換下一首時，但這是DSP設置跳過結尾靜音部分才會發生
+                <br/>
+                <br/>
+
+
+                <br>
+                <a id="updateStatusLink2" class="underline">Refresh now playing</a>
+                <script type="text/javascript">
+                    Event.observe('updateStatusLink2', 'click', ReqStatus.update.curry('', true), false);
+                </script>
+                <br>
+                <div id="status">
+                    <script type="text/javascript">
+                        ReqStatus.update('', false);
+                    </script>
+
+                </div>
+                <!-- status -->
+                <!--
+<div xmlns="http://www.w3.org/1999/xhtml" class="audioplayer">(Lossless audio/ogg)<audio controls="controls" preload="none"><source src="http://tsuiokuyo.ddns.net:8764/stream" type="application/ogg" /></audio></div>
+-->
+                <div xmlns="http://www.w3.org/1999/xhtml" class="audioplayer">(320kbps audio/ogg)<audio controls="controls" preload="none"><source src="http://tsuiokuyo.ddns.net:8764/vorbis" type="application/ogg" /></audio></div>
+
+                <div xmlns="http://www.w3.org/1999/xhtml" class="audioplayer">(320kbps audio/mpeg)<audio controls="controls" preload="none"><source src="http://tsuiokuyo.ddns.net:8765/shoutcast" type="application/ogg" /></audio></div>
+                <div id="fixed" style="float:left;">
+                    <div id="fixedMessage"></div>
+                </div>
+
+                <!--<div id="requestList"></div>-->
+            </div>
+        </div>
+
+        <br style="clear:both;">
+
+        <div style="">
+            <div style="margin:1em;margin-top:0em;margin-right:0.4em;width:42%!important;float:left;">
+                <!-- play list -->
+                <div id="playListPlace" class="listlist" style="margin-top:0em;"></div>
+
+                <!-- search -->
+                <div class="search">
+                    <form id="searchForm" onsubmit="SongList.updateFromFormElement('search', 'search'); return false;">
+                        <input type="text" size="15" name="search" id="search" />&nbsp;
+                        <div class="auto_complete" id="search_auto_complete"></div>
+                        <button id="searchButton"><img id="searchIcon" style="vertical-align:-1px" src="/img/icon5.gif" alt="Search" /> Search</button>&nbsp;
+                        <script type="text/javascript" language="javascript" charset="utf-8">
+                            Event.observe('searchForm', 'submit', function(e) {
+                                SongList.updateFromFormElement('search', 'search');
+                                return false;
+                            }, false);
+                            Event.observe('searchButton', 'click', function(e) {
+                                SongList.updateFromFormElement('search', 'search');
+                                return false;
+                            }, false);
+                            ga = new Google.Autocompleter('search', 'search_auto_complete', 'http://www.google.co.jp/complete/search', {
+                                method: 'get',
+                                parameters: 'hl=ja&js=true',
+                                paramName: 'qu'
+                            });
+                            var sendRPCDone = ga.sendRPCDone.bind(ga);
+                        </script>
+                        <!--<font size="2"><a href="#" onClick="SongList.update(''); return false;">Refresh list</a></font>--><br />
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- index -->
+            <div id="indexForm" class="index_form" style="margin:1em;margin-top:0em;margin-right:0.4em;width:42%!important;float:left;">
+
+                <div id="accordionIndex" class="accordionPanels">
+
+                    <div id="panel1">
+                        <div id="panel1Header" class="accordionTabTitleBar">
+                            <img id="defaultIcon" style="vertical-align:-1px;" src="/img/icon0.gif" alt="Usage" /> Index list usage
+                        </div>
+                        <div id="panel1Content" class="accordionTabContentBox" style="display:none">
+                            <br />1. Select an index from artist, album, genre and date.<br /> 2. Select the item in the index for updating to the song list below.<br />
+                            <br />Indexes are load dynamically if you need.
+                            <br /><span class="caution">Please refresh this page if the index seems to have broken. </span>
+
+                            <br>
+                            <br /><span>recommend to use search ,<br />
+				There are too many songs here,<br />
+				and song titles may be Chinese, English , Japanese or Romanization of Japanese... </span>
+                        </div>
+
+                    </div>
+
+                    <div id="panel2">
+                        <div id="panel2Header" class="accordionTabTitleBar">
+                            <img id="artistIcon" style="vertical-align:-1px;" src="/img/icon1.gif" alt="Artist index" /> Artist index
+                        </div>
+                        <div id="panel2Content" class="accordionTabContentBox" style="display:none">
+                            <br/>Now loading...
+                        </div>
+                    </div>
+
+                    <div id="panel3">
+                        <div id="panel3Header" class="accordionTabTitleBar">
+                            <img id="albumIcon" style="vertical-align:-1px;" src="/img/icon2.gif" alt="Album index" /> Album index
+                        </div>
+                        <div id="panel3Content" class="accordionTabContentBox" style="display:none">
+                            <br/>Now loading...
+                        </div>
+                    </div>
+
+                    <div id="panel4">
+                        <div id="panel4Header" class="accordionTabTitleBar">
+                            <img id="genreIcon" style="vertical-align:-1px;" src="/img/icon3.gif" alt="Genre index" /> Genre index
+                        </div>
+                        <div id="panel4Content" class="accordionTabContentBox" style="display:none">
+                            <br/>Now loading...
+                        </div>
+                    </div>
+
+                    <div id="panel5">
+                        <div id="panel5Header" class="accordionTabTitleBar">
+                            <img id="dateIcon" style="vertical-align:-1px;" src="/img/icon4.gif" alt="Date index" /> Date index
+                        </div>
+                        <div id="panel5Content" class="accordionTabContentBox" style="display:none">
+                            <br/>Now loading...
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <script>
+                setupAccord();
+            </script>
+        </div>
+
+        <br style="clear:both;">
+
+
+        <div id="listContainer">
+
+            <div id="tab1" style="clear:both;">
+                <div class="tab_title"><img style="vertical-align:-1px" src="/img/icon7.gif" alt="Request list" /> Request list</div>
+                <!-- songlist -->
+
+                <div id="requestListPlace" class="tab_item"></div>
+            </div>
+            <!-- songlist -->
+            <!--
+        <div id="tab2">
+          <div class="tab_title">Song list</div>
+          
+          <div id="songList" class="tab_item"></div>
+        </div>
+        -->
+
+        </div>
+
+
+
+        <script type="text/javascript">
+            tabList = new TabContainer('listContainer');
+            //SongList.update('', false, true);
+        </script>
+
+        <!--
+      <div id="songList" class="songlist_container" style="margin:1em;width:95%;">
+
+        <script type="text/javascript">
+          SongList.update('', false);
+        </script>
+
+      </div>
+      -->
+
+        <p style="font-size:70%;text-align:right;">
+            generated by <a href="http://nurugunyo.hp.infoseek.co.jp/foobar.html" class="external">foo_request_http</a>
+        </p>
+
+    </div>
+    <!-- body -->
+</body>
+
+</html>

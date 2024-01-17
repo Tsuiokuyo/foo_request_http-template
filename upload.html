@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="refresh" content="0.1; url=http://tsuiokuyo.ddns.net:8763/js_index.html">
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <title>Foobar2000 song requester</title>
+    <link rel="stylesheet" type="text/css" href="/requester.css" media="all" />
+    <style type="text/css">
+        <FOOBAR2000-Info>$ifequal(%enable_upload%, 1, '#uploadDisableMessage { display:none; }', '#uploadform { display:none; }') </FOOBAR2000-Info>
+    </style>
+
+</head>
+
+<body>
+
+    <ul class="trans">
+        <li><a href="?">Refresh</a></li>
+        <li><a href="/">Home</a></li>
+        <!--
+      <li><a href="http://your.shoutcast.server:port/index.html" class="external">Status</a></li>
+      <li><a href="http://your.shoutcast.server:port/listen.pls" class="external">Listen</a></li>
+      <li><a href="http://your.shoutcast.server:port/played.html" class="external">Song history</a></li> 
+      -->
+        <li><a href="http://your.server.com:4096/index.html" class="external">Status</a></li>
+        <li><a href="http://your.server.com:4096/listen.pls" class="external">Listen</a></li>
+        <li><a href="http://your.server.com:4096/played.html" class="external">Song history</a></li>
+        <li><a href="/admin">Admin</a></li>
+    </ul>
+
+    <!-- info -->
+
+    <div style="margin:1em;">
+        <FOOBAR2000-Info>
+            <p class="message">%message%</p>
+            <p>
+                counter:%http_request_num%<br> request:%song_request_num%
+                <br> active connections'('300s')': %participant% <br>
+            </p>
+        </FOOBAR2000-Info>
+    </div>
+
+    <br/>
+
+    <div style="margin:1em;">
+        <form name="uploadform" id="uploadform" method="POST" enctype="multipart/form-data" action="upload.html">
+            ファイル<small><strong> （15MBまで）</strong></small><br>
+            <input type="file" size="30" name="uploadfile">
+            <!--
+      <select name="suffix"><option value="" selected>特殊拡張子選択
+      <option value="3g2">3g2
+      <option value="aif">aif
+      <option value="amc">amc
+      <option value="arj">arj
+      <option value="asf">asf
+      <option value="au">au
+      <option value="avi">avi
+      <option value="bin">bin
+      <option value="bmp">bmp
+      <option value="c">c
+      <option value="css">css
+      <option value="cvs">cvs
+      <option value="dcr">dcr
+      <option value="exe">exe
+      <option value="gif">gif
+      <option value="gz">gz
+      <option value="html">html
+      <option value="ico">ico
+      <option value="it">it
+      <option value="jar">jar
+      <option value="jpg">jpg
+      <option value="ki2">ki2
+      <option value="kif">kif
+      <option value="lzh">lzh
+      <option value="m3u">m3u
+      <option value="mag">mag
+      <option value="mid">mid
+      <option value="mod">mod
+      <option value="mov">mov
+      <option value="mp3">mp3
+      <option value="mpg">mpg
+      <option value="ogg">ogg
+      <option value="pdf">pdf
+      <option value="png">png
+      <option value="psd">psd
+      <option value="ra">ra
+      <option value="ram">ram
+      <option value="rar">rar
+      <option value="rm">rm
+      <option value="rpm">rpm
+      <option value="rtf">rtf
+      <option value="s3m">s3m
+      <option value="sit">sit
+      <option value="swf">swf
+      <option value="tar">tar
+      <option value="tif">tif
+      <option value="txt">txt
+      <option value="uue">uue
+      <option value="vqe">vqe
+      <option value="vqf">vqf
+      <option value="wav">wav
+      <option value="wma">wma
+      <option value="wmv">wmv
+      <option value="wri">wri
+      <option value="xm">xm
+      <option value="xml">xml
+      <option value="yz1">yz1
+      <option value="zip">zip
+      </select>
+      -->
+            <br> コメント
+            <br>
+            <input type="text" size="60" name="comment" value="">
+            <input type="submit" name="act" value="Up/Reload" class="button"><input type="reset" value="Cancel" class="button"><br>
+
+        </form>
+        <p id="uploadDisableMessage" class="caution">Now file upload disabled.</p>
+    </div>
+
+    <div style="margin:1em;margin-top:2em;">
+        <p>アップロードしたファイルは Upload プレイリストに追加されます。</p>
+    </div>
+
+    <div style="margin:1em;margin-top:2em;">
+        <table border="1" style="width:100%;" class="song_list">
+            <caption>
+                Upload History (Click to request)
+            </caption>
+            <thead>
+                <th>n.</th>
+                <th>upload time</th>
+                <th>artist - title</th>
+                <th>upload comment</th>
+                <th>filesize</th>
+                <th>download</th>
+            </thead>
+            <FOOBAR2000-UploadHistory>
+                <tr>
+                    <td>%index%</td>
+                    <td>%upload_time%</td>
+                    <td><a href="/frame_main.html?cmd=request&list_id=%list_id%&song_id=%song_id%"><strong>%artist%</strong>&nbsp;&nbsp;-&nbsp;&nbsp;%title%</a></td>
+                    <td>%upload_comment%</td>
+                    <td>%filesize%</td>
+                    <td><a href="/download/%filename_ext%?list_id=%list_id%&song_id=%song_id%">download</a></td>
+                </tr>
+            </FOOBAR2000-UploadHistory>
+            <tfoot>
+                <td colspan="2" style="text-align:center;"></td>
+                <td colspan="3" style="text-align:center;"></td>
+            </tfoot>
+        </table>
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{ 
+total_size:
+<FOOBAR2000-Info>
+"[%total_size%]"
+</FOOBAR2000-Info>
+,
+songlist:[
+<FOOBAR2000-RequestTrack>
+{ 
+  list_id: "%list_id%",
+  song_id: "%song_id%",
+  artist: "%artist%",
+  title: "%title%",
+  album: "%album%",
+  comment: "[%comment%]",
+  length: "%_length%",
+  codec: "%__codec%",
+  bitrate: "%__bitrate%",
+  index: "%index%",
+  priority:"%priority%",
+  is_requested:"%is_requested%"
+},
+</FOOBAR2000-RequestTrack>
+{}
+]}
